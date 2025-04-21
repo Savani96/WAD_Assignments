@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Sign Up & Sign In</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Sign Up / Sign In</h2>
+    <label>Username:</label>
+    <input type="text" id="username"><br><br>
+
+    <label>Password:</label>
+    <input type="password" id="password"><br><br>
+
+    <button id="signup">Sign Up</button>
+    <button id="signin">Sign In</button>
+
+    <script>
+        $(document).ready(function () {
+            // Sign Up AJAX Simulation
+            $("#signup").click(function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+
+                if (username === "" || password === "") {
+                    alert("Please enter username and password.");
+                    return;
+                }
+
+                // Check if user already exists in localStorage
+                if (localStorage.getItem(username)) {
+                    alert("User already exists!");
+                    return;
+                }
+
+                // Store user in localStorage
+                localStorage.setItem(username, password);
+
+                // Simulate AJAX Success
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/posts", // Dummy URL
+                    type: "POST",
+                    data: JSON.stringify({ username: username, password: password }),
+                    contentType: "application/json",
+                    success: function (response) {
+                        alert("User registered successfully!");
+                    },
+                    error: function () {
+                        alert("Something went wrong!");
+                    }
+                });
+            });
+
+            // Sign In AJAX Simulation
+            $("#signin").click(function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+
+                if (username === "" || password === "") {
+                    alert("Please enter username and password.");
+                    return;
+                }
+
+                // Check if user exists and password matches
+                if (localStorage.getItem(username) === password) {
+                    $.ajax({
+                        url: "https://jsonplaceholder.typicode.com/posts", // Dummy URL
+                        type: "POST",
+                        data: JSON.stringify({ username: username }),
+                        contentType: "application/json",
+                        success: function (response) {
+                            alert("User signed in successfully!");
+                        },
+                        error: function () {
+                            alert("Something went wrong!");
+                        }
+                    });
+                } else {
+                    alert("Invalid username or password!");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

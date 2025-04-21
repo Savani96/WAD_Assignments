@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personal Portfolio</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    .main-content {
+      padding: 15px;
+    }
+    .highlight {
+      color: #0077cc;
+      font-weight: bold;
+    }
+    .ui-content h2 {
+      margin-top: 0.5em;
+    }
+    .skills-list li {
+      margin: 5px 0;
+    }
+    .ui-footer {
+      text-align: center;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Home Page -->
+  <div data-role="page" id="Home">
+    <div data-role="header" data-position="fixed">
+      <h1>Personal Portfolio</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#aboutme">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skill">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+      <h2>Hello! I'm <span class="highlight">Savani Sonawane</span></h2>
+      <p>Welcome to my personal portfolio site. Explore to learn more about me!</p>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <p>&copy; 2025 Savani Sonawane</p>
+    </div>
+  </div>
+
+  <!-- About Me Page -->
+  <div data-role="page" id="aboutme">
+    <div data-role="header" data-position="fixed">
+      <h1>About Me</h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+      <h2>Name: <span class="highlight">Savani Sonawane</span></h2>
+      <h2>Email: <a href="mailto:savanisonawane@gmail.com">savanisonawane@gmail.com</a></h2>
+      <p>I am a passionate Computer Science student with an interest in software engineering and full-stack development.</p>
+
+      <a href="#Home" class="ui-btn ui-icon-home ui-btn-icon-left">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Projects Page -->
+  <div data-role="page" id="projects">
+    <div data-role="header" data-position="fixed">
+      <h1>Projects</h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+      <h2>Event Report Generator</h2>
+      <p>A MERN stack app that generates automated event reports from feedback Excel files. Includes dynamic chart generation and PDF export.</p>
+
+      <a href="#Home" class="ui-btn ui-icon-home ui-btn-icon-left">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Skills Page -->
+  <div data-role="page" id="skill">
+    <div data-role="header" data-position="fixed">
+      <h1>Skills</h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+      <ul class="skills-list" data-role="listview" data-inset="true">
+        <li>C++</li>
+        <li>Java</li>
+        <li>Operating Systems (OS)</li>
+        <li>Data Structures & Algorithms (DSA)</li>
+        <li>Computer Networks & Security (CNSL)</li>
+      </ul>
+
+      <a href="#Home" class="ui-btn ui-icon-home ui-btn-icon-left">Back to Home</a>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+  <div data-role="page" id="contact">
+    <div data-role="header" data-position="fixed">
+      <h1>Contact Info</h1>
+    </div>
+
+    <div role="main" class="ui-content main-content">
+      <h2>Name: <span class="highlight">Savani Sonawane</span></h2>
+      <h2>Email: <a href="mailto:savanisonawane@gmail.com">savanisonawane@gmail.com</a></h2>
+      <p>Feel free to connect with me via email for collaboration, projects, or just to say hi!</p>
+
+      <a href="#Home" class="ui-btn ui-icon-home ui-btn-icon-left">Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>

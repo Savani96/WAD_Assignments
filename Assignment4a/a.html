@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+       <form id="myForm">
+        <div id="idname">
+            <label for="name"> Name</label>
+            <input type="text" name="name" id="name" />
+        </div>
+        <div id="idemail">
+            <label for="email"> Email</label>
+            <input type="email" name="email" id="email" />
+        </div>
+        <div id="idmsg">
+            <label for="msg"> Message</label>
+            <input type="text" name="msg" id="msg"/>
+        </div>
+        <input type="submit" value="submit" id="submit"/>
+       </form>
+    </div> 
+    <script>
+        $(document).ready( function()
+    {
+        $('#myForm').on('submit',function(e)
+    {
+        e.preventDefault();
+
+        var n = $('#name').val();
+        var em = $('#email').val();
+        var m = $('#msg').val();
+        console.log(n);
+        console.log(em);
+        console.log(m);
+
+        alert("Name : "+n+" Email : "+em+" Msg : "+m);
+
+    });
+    });
+    </script>
+</body>
+</html>
