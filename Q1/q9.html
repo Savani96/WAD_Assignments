@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        #weather-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        input, button {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+        }
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #b3e5fc;
+            border: 1px solid #0288d1;
+            border-radius: 8px;
+            display: none;
+        }
+        .error {
+            background-color: #ffcccb;
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="weather-container">
+        <h1>🌦️ Weather App</h1>
+        <input type="text" id="cityInput" placeholder="Enter city name" required>
+        <button id="getWeather">Get Weather</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const weatherData = {
+            "New York": { temperature: "15°C", humidity: "60%", conditions: "Cloudy" },
+            "Los Angeles": { temperature: "22°C", humidity: "45%", conditions: "Sunny" },
+            "Chicago": { temperature: "10°C", humidity: "70%", conditions: "Rainy" },
+            "Houston": { temperature: "28°C", humidity: "55%", conditions: "Clear" },
+            "Miami": { temperature: "30°C", humidity: "65%", conditions: "Sunny" }
+        };
+
+        $(document).ready(function () {
+            $('#getWeather').click(function () {
+                const city = $('#cityInput').val().trim();
+
+                if (city === "") {
+                    showError("Please enter a city name.");
+                    return;
+                }
+                const weather = weatherData[city];
+                        if (weather) {
+                            $('#result').html(`
+                                <h3>${city}</h3>
+                                <p><b>Temperature:</b> ${weather.temperature}</p>
+                                <p><b>Humidity:</b> ${weather.humidity}</p>
+                                <p><b>Conditions:</b> ${weather.conditions}</p>
+                            `).removeClass('error').fadeIn();
+                        } else {
+                            showError("City not found in the database.");
+                        }
+
+                $.ajax({
+                    url: "https://dummyurl.com/weather", // Dummy URL for AJAX simulation
+                    method: "POST",
+                    data: JSON.stringify({ city: city }),
+                    contentType: "application/json",
+                    success: function () {
+                        // const weather = weatherData[city];
+                        // if (weather) {
+                        //     $('#result').html(`
+                        //         <h3>${city}</h3>
+                        //         <p><b>Temperature:</b> ${weather.temperature}</p>
+                        //         <p><b>Humidity:</b> ${weather.humidity}</p>
+                        //         <p><b>Conditions:</b> ${weather.conditions}</p>
+                        //     `).removeClass('error').fadeIn();
+                        // } else {
+                        //     showError("City not found in the database.");
+                        // }
+                    },
+                    error: function () {
+                        // showError("Error fetching weather data. Please try again.");
+                    }
+                });
+            });
+
+            function showError(message) {
+                $('#result').html(message).addClass('error').fadeIn();
+            }
+        });
+    </script>
+
+</body>
+</html>

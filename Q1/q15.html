@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Calculator</title>
+    <script src="https://unpkg.com/@angular/core@latest/bundles/core.umd.js"></script>
+    <script src="https://unpkg.com/@angular/common@latest/bundles/common.umd.js"></script>
+    <script src="https://unpkg.com/@angular/platform-browser@latest/bundles/platform-browser.umd.js"></script>
+    <script src="https://unpkg.com/@angular/platform-browser-dynamic@latest/bundles/platform-browser-dynamic.umd.js"></script>
+    <script src="https://unpkg.com/zone.js@latest"></script>
+</head>
+<body>
+    <div ng-app="CalculatorApp" ng-controller="CalculatorController" class="container mt-5">
+        <h2 class="text-center">Angular Calculator</h2>
+        <div class="mb-3">
+            <input type="number" ng-model="number1" class="form-control mb-2" placeholder="Enter first number">
+            <input type="number" ng-model="number2" class="form-control mb-2" placeholder="Enter second number">
+        </div>
+        <div class="mb-3">
+            <button ng-click="calculate('add')" class="btn btn-primary me-2">+</button>
+            <button ng-click="calculate('subtract')" class="btn btn-primary me-2">-</button>
+            <button ng-click="calculate('multiply')" class="btn btn-primary me-2">*</button>
+            <button ng-click="calculate('divide')" class="btn btn-primary">/</button>
+        </div>
+        <h4 class="text-center">Result: {{ result }}</h4>
+    </div>
+
+    <script>
+        angular.module('CalculatorApp', [])
+            .controller('CalculatorController', function($scope) {
+                $scope.calculate = function(operation) {
+                    const num1 = parseFloat($scope.number1) || 0;
+                    const num2 = parseFloat($scope.number2) || 0;
+
+                    switch (operation) {
+                        case 'add':
+                            $scope.result = num1 + num2;
+                            break;
+                        case 'subtract':
+                            $scope.result = num1 - num2;
+                            break;
+                        case 'multiply':
+                            $scope.result = num1 * num2;
+                            break;
+                        case 'divide':
+                            $scope.result = num2 !== 0 ? (num1 / num2).toFixed(2) : 'Error: Division by zero';
+                            break;
+                    }
+                };
+            });
+    </script>
+</body>
+</html>

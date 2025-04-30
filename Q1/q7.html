@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Clone</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #E9EBEE; 
+            margin: 0; 
+            padding: 0;
+        }
+        .header {
+            background-color: #3B5998; 
+            color: #fff; 
+            padding: 15px; 
+            text-align: left;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .login-container {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+        .login-container input[type="text"], .login-container input[type="password"] {
+            padding: 5px;
+            margin-right: 5px;
+        }
+        .login-btn {
+            background-color: #4267B2; 
+            color: #fff; 
+            border: none; 
+            padding: 5px 10px; 
+            cursor: pointer;
+        }
+        .container {
+            display: flex;
+            padding: 50px;
+        }
+        .left-section {
+            width: 50%;
+        }
+        .right-section {
+            width: 50%;
+        }
+        .account-form input, .account-form select {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        .signup-btn {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        facebook
+        <div class="login-container">
+            <input type="text" placeholder="Email or Username">
+            <input type="password" placeholder="Password">
+            <button class="login-btn">Login</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="left-section">
+            <h2>Facebook is useless without friends. <br> Make More Friends.</h2>
+            <img src="https://via.placeholder.com/300x200" alt="Facebook Connection">
+        </div>
+        
+        <div class="right-section">
+            <h2>Create an Account</h2>
+            <p>It's free and always will be.</p>
+            <form class="account-form">
+                <input type="text" placeholder="Firstname">
+                <input type="text" placeholder="Lastname">
+                <input type="email" placeholder="Email">
+                <input type="email" placeholder="Re-enter email">
+                <input type="password" placeholder="Password">
+                <input type="date" placeholder="dd/mm/yyyy">
+                <label><input type="radio" name="gender"> Male</label>
+                <label><input type="radio" name="gender"> Female</label>
+                <button class="signup-btn">Signup</button>
+            </form>
+            <p>Create a page for you.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        English (UK) | Learn more...
+    </div>
+</body>
+</html>

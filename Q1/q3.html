@@ -1,0 +1,150 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Delights - Restaurant Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f8f9fa; color: #333; }
+        .header { background-color: #8B0000; color: #fff; padding: 20px; text-align: center; }
+        .menu-section { background-color: #fff; border: 2px solid #8B0000; border-radius: 10px; padding: 20px; margin-top: 20px; }
+        .menu-table img { width: 80px; height: 60px; border-radius: 5px; }
+        .section-title { color: #8B0000; text-align: center; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ABC Delights - Restaurant Menu</h1>
+            <p>Welcome to ABC Delights - Where taste meets tradition!</p>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="section-title">Top Dishes</h2>
+            <ol>
+                <li>Paneer Tikka</li>
+                <li>Biryani</li>
+            </ol>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="section-title">Available Cuisines</h2>
+            <ul>
+                <li>Italian</li>
+                <li>Indian</li>
+                <li>Chinese</li>
+            </ul>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="section-title">Menu</h2>
+            <table class="table table-bordered table-striped menu-table">
+                <thead class="table-danger">
+                    <tr>
+                        <th>Dish Image</th>
+                        <th>Dish Name</th>
+                        <th>Description</th>
+                        <th>Price (INR ₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="paneer_tikka.jpg" alt="Paneer Tikka"></td>
+                        <td>Paneer Tikka</td>
+                        <td>Grilled paneer marinated with spices.</td>
+                        <td>₹350</td>
+                    </tr>
+                    <tr>
+                        <td><img src="biryani.jpg" alt="Biryani"></td>
+                        <td>Biryani</td>
+                        <td>Fragrant rice cooked with spices and meat/vegetables.</td>
+                        <td>₹450</td>
+                    </tr>
+                    <tr>
+                        <td><img src="pizza.jpg" alt="Pizza"></td>
+                        <td>Pizza</td>
+                        <td>Wood-fired pizza with fresh toppings.</td>
+                        <td>₹500</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Delights - Restaurant Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f8f9fa; color: #333; }
+        .header { background-color: #8B0000; color: #fff; padding: 20px; text-align: center; }
+        .menu-section { background-color: #fff; border: 2px solid #8B0000; border-radius: 10px; padding: 20px; margin-top: 20px; }
+        .menu-table img { width: 80px; height: 60px; border-radius: 5px; }
+        .section-title { color: #8B0000; text-align: center; margin-top: 20px; }
+        .cuisine-menu { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ABC Delights - Restaurant Menu</h1>
+            <p>Welcome to ABC Delights - Where taste meets tradition!</p>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="section-title">Top Dishes</h2>
+            <ol>
+                <li>Paneer Tikka</li>
+                <li>Biryani</li>
+            </ol>
+        </div>
+
+        <div class="menu-section">
+            <h2 class="section-title">Available Cuisines</h2>
+            <ul>
+                <li><a href="#" onclick="showMenu('italian')">Italian</a></li>
+                <li><a href="#" onclick="showMenu('indian')">Indian</a></li>
+                <li><a href="#" onclick="showMenu('chinese')">Chinese</a></li>
+            </ul>
+        </div>
+
+        <div class="menu-section cuisine-menu" id="italian">
+            <h2 class="section-title">Italian Dishes</h2>
+            <ul>
+                <li>Pizza - ₹500</li>
+                <li>Pasta - ₹300</li>
+            </ul>
+        </div>
+
+        <div class="menu-section cuisine-menu" id="indian">
+            <h2 class="section-title">Indian Dishes</h2>
+            <ul>
+                <li>Paneer Tikka - ₹350</li>
+                <li>Biryani - ₹450</li>
+            </ul>
+        </div>
+
+        <div class="menu-section cuisine-menu" id="chinese">
+            <h2 class="section-title">Chinese Dishes</h2>
+            <ul>
+                <li>Manchurian - ₹400</li>
+                <li>Hakka Noodles - ₹350</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showMenu(cuisine) {
+            document.querySelectorAll('.cuisine-menu').forEach(menu => menu.style.display = 'none');
+            document.getElementById(cuisine).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
